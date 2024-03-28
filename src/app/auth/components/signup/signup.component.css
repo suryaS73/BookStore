@@ -1,0 +1,30 @@
+.row {
+    margin: 1%;
+}
+
+
+.btn-google:hover {
+  
+    background-color: #C23B33;
+    border-color: #C23B33;
+    color: #ffffff;
+} 
+.btn-google {
+    color: #545454;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 1px #ddd;
+    border-radius: 5px;
+}
+
+.example-card
+{
+    width: 35%;
+    margin-left: 35%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
+}
+.example-full-width
+{
+    width: 100%;
+}

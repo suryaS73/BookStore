@@ -29,16 +29,15 @@ export class AuthGoogleService {
   }
 
   login() {
+    console.log("Logged in successfully");
     this.oauthService.initLoginFlow();
     sessionStorage.setItem('username','loggedInd');
-    console.log("Logged in successfully");
     // this.getProfile();
   }
 
   logout() {
-    this.getProfile();
-    this.oauthService.logOut();
     sessionStorage.removeItem('username');
+    this.oauthService.logOut();
   }
 
   getProfile() {
