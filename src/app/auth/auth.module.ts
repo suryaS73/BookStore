@@ -6,8 +6,12 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { AuthComponent } from './auth.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
-
-
+import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../shared/material.module';
+import { AuthGoogleService } from './auth-google.service';
 
 
 @NgModule({
@@ -16,10 +20,18 @@ import { AuthRoutingModule } from './auth-routing.module';
     SignupComponent,
     ChangePasswordComponent,
     AuthComponent
-  ],
+     ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    OAuthModule.forRoot(),
+    HttpClientModule,
+    SharedModule,
+    MaterialModule,
+    FormsModule
   ]
 })
-export class AuthModule { }
+export class AuthModule { 
+
+  
+}

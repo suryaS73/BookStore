@@ -1,3 +1,11 @@
-<h2>User Header</h2>
+<h2>Welcome <p>UserId = {{userId}}</p></h2>
 <router-outlet></router-outlet>
-<p>UserId = {{userId}}</p>
+
+<div>
+    <span class="spacer"></span>
+    <button mat-button routerLink="add-book">Add Book</button>
+    <span class="spacer"></span>
+    <button mat-button routerLink="delete-book">Delete Book</button>
+    <span class="spacer"></span>
+</div>
+

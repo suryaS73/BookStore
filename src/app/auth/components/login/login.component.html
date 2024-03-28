@@ -1,5 +1,35 @@
-<p>login works!</p>
-<h1>User Name : {{name}}</h1>
-<button (click)="goToSignup()">Signup</button>
-
-<button (click)="goToBookDetails(1,1)">Book Details</button>
+<!-- <div>
+    <a href="https://accounts.google.com/o/oauth2/auth?redirect_uri=./usercard&response_type=code&client_id=976513685340-pnb5cue9bv01qq308n0lrrvkkp66o5qq.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile&access_type=offline">Sign in with Google</a>
+</div> -->
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+          </mat-form-field></td>
+        </tr></table>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button  class="btn btn-lg btn-google btn-block text-uppercase btn-outline" (click)="googleLogin()" style=" display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%;">
+            <img mat-card-image src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" width="7%" height="30px"> <span style="font-weight: bold;">Sign in Google</span>
+        </button>     
+    </mat-card-actions>
+  </mat-card>

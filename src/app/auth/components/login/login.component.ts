@@ -1,31 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { AuthGoogleService } from '../../auth-google.service';
+import { Router } from '@angular/router';
+import { ToolbarService } from 'src/app/shared/services/toolbar.service';
+import { ToolbarComponent } from 'src/app/shared/components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
+  // constructor(private authGoogleService: AuthGoogleService) { }
 
-  public name:string='';
-  
-  constructor(private route:ActivatedRoute,private router:Router){}
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(query=>
+  // login() {
+  //   // this.authGoogleService.login();
+  // },
+  constructor(private router: Router,private authGoogleService: AuthGoogleService ) { }
 
-        this.name=query['name']
-      )
+  username:string;
+  password: string;
+  showSpinner:boolean ;
+
+  ngOnInit() {
+    this.showSpinner=false;
   }
 
-  goToSignup():void{
-    this.router.navigate(['/auth/signup']);
+  login() : void {
+    this.showSpinner=true;
+    if(this.username != null  && this.password != null){
+      sessionStorage.setItem('username',this.username);
+     this.router.navigate(["books"]);
+     
+    }else {
+      this.showSpinner=false;
+      alert("Invalid credentials");
+    }
   }
 
-
-  goToBookDetails(id:number,authorId:number):void{
-    this.router.navigate(['/public/book-details',id,'author',authorId]
-    ,{queryParams:{name:'Surya'}});
+  googleLogin(){
+    this.authGoogleService.login();
   }
-}
+  }
