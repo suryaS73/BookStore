@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, Query } from '@angular/core';
 import * as sql from 'mssql';
 
 const config: sql.config = {
@@ -15,8 +16,10 @@ const config: sql.config = {
   providedIn: 'root'
 })
 export class BdService {
+  responseFromAPI: any;
 
-  constructor() { 
+  constructor(private http:HttpClient
+  ) { 
     try {
       sql.connect(config);
       console.log('Connected to the database successfully!');
@@ -36,6 +39,12 @@ export class BdService {
   //   }
   // }
 
+  registerUser(data:any){
+    this.http.post('http://localhost:8080/bookStore/register',data).subscribe((response:any)=>{
+      this.responseFromAPI=response;
+  }
+    );
+}
 
 
 }

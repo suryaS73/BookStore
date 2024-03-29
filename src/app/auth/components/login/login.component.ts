@@ -4,6 +4,7 @@ import { AuthGoogleService } from '../../auth-google.service';
 import { Router } from '@angular/router';
 import { ToolbarService } from 'src/app/shared/services/toolbar.service';
 import { ToolbarComponent } from 'src/app/shared/components/toolbar/toolbar.component';
+import { BdService } from 'src/app/shared/services/bd.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   // login() {
   //   // this.authGoogleService.login();
   // },
-  constructor(private router: Router,private authGoogleService: AuthGoogleService ) { }
+  constructor(private router: Router,private authGoogleService: AuthGoogleService,private dbService:BdService ) { }
 
   username:string;
   password: string;
@@ -27,7 +28,7 @@ export class LoginComponent {
     this.showSpinner=false;
   }
 
-  login() : void {
+  login() {
     this.showSpinner=true;
     if(this.username != null  && this.password != null){
       sessionStorage.setItem('username',this.username);

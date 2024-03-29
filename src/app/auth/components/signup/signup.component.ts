@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BdService } from 'src/app/shared/services/bd.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,19 +10,18 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
 
-  username:string;
-  password: string;
-  confirmPassword:string;
+  userRegistrationForm=new FormGroup({
+    name: new FormControl('',Validators.required),
+    password: new FormControl('',[Validators.required]),
+    confirmPassword: new FormControl('',[Validators.required])
+  });
 
-  constructor(private router: Router ) { }
+  constructor(private router: Router,private dbService:BdService ) { }
 
-  signup(){
-    if(this.password==this.confirmPassword && this.password!=null && this.confirmPassword!=null && this.username!=null){
-      this.router.navigate(["auth/login"]);
-    }
-    else{
-      alert("password mismatch (or) Data missing");
-    }
+  signup(data:any){
+    this.dbService.registerUser(data);
+    this.router.navigate(["auth/login"]);
+    
   }
 
 }
