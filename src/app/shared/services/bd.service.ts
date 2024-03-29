@@ -20,24 +20,15 @@ export class BdService {
 
   constructor(private http:HttpClient
   ) { 
-    try {
-      sql.connect(config);
-      console.log('Connected to the database successfully!');
-      // Perform database operations here
-    } catch (error) {
-      console.error('Error connecting to the database:', error);
-    }
+    // try {
+    //   sql.connect(config);
+    //   console.log('Connected to the database successfully!');
+    //   // Perform database operations here
+    // } catch (error) {
+    //   console.error('Error connecting to the database:', error);
+    // }
   }
 
-  // connectToDatabase() {
-  //   try {
-  //     sql.connect(config);
-  //     console.log('Connected to the database successfully!');
-  //     // Perform database operations here
-  //   } catch (error) {
-  //     console.error('Error connecting to the database:', error);
-  //   }
-  // }
 
   registerUser(data:any){
     this.http.post('http://localhost:8080/bookStore/register',data).subscribe((response:any)=>{
