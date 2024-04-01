@@ -21,6 +21,7 @@ export class AuthGoogleService {
       clientId: '167760791890-s2simrsdvpba4f5l26pae2nj2tdn1fo0.apps.googleusercontent.com',
       redirectUri: "https://suryaS73.github.io/BookStore/home",
       scope: 'openid profile email'
+      //configuration
     }
 
     this.oauthService.configure(config);
