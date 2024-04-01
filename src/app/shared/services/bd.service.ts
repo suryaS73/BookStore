@@ -34,8 +34,13 @@ export class BdService {
     this.http.post('http://localhost:8080/bookStore/register',data).subscribe((response:any)=>{
       this.responseFromAPI=response;
   }
+    );  
+  }
+
+  checkDetails(user:any){
+    this.http.get('http://localhost:8080/bookStore/checkDetails/'+user).subscribe((response:any)=>{
+      this.responseFromAPI=response;}
     );
-}
-
-
+    return this.responseFromAPI;
+  }
 }

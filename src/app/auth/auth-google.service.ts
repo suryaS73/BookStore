@@ -19,7 +19,7 @@ export class AuthGoogleService {
       issuer: 'https://accounts.google.com',
       strictDiscoveryDocumentValidation: false,
       clientId: '167760791890-s2simrsdvpba4f5l26pae2nj2tdn1fo0.apps.googleusercontent.com',
-      redirectUri: window.location.origin + '/home',
+      redirectUri: "https://suryaS73.github.io/BookStore/home",
       scope: 'openid profile email'
     }
 
